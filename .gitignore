@@ -1,0 +1,15 @@
+# Binaries
+/iam-policy-diff
+/dist/
+*.exe
+*.out
+
+# Test / coverage artifacts
+*.test
+coverage.out
+out.json
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store

@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadWriteAppBucket",
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::my-app-data/*"
+    },
+    {
+      "Sid": "ReadParams",
+      "Effect": "Allow",
+      "Action": "ssm:GetParameter",
+      "Resource": "arn:aws:ssm:*:*:parameter/my-app/*"
+    },
+    {
+      "Sid": "DeployRole",
+      "Effect": "Allow",
+      "Action": ["iam:PassRole", "lambda:UpdateFunctionCode"],
+      "Resource": "*"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "s3": [
+    "GetObject", "GetObjectAcl", "GetObjectVersion", "GetObjectTagging",
+    "PutObject", "PutObjectAcl", "PutObjectTagging",
+    "DeleteObject", "DeleteObjectVersion",
+    "ListBucket", "ListAllMyBuckets", "ListBucketVersions",
+    "GetBucketPolicy", "PutBucketPolicy", "DeleteBucketPolicy",
+    "GetBucketAcl", "PutBucketAcl", "CreateBucket", "DeleteBucket",
+    "GetBucketLocation", "GetEncryptionConfiguration", "PutEncryptionConfiguration"
+  ],
+  "iam": [
+    "GetUser", "GetRole", "GetPolicy", "GetPolicyVersion", "GetRolePolicy",
+    "ListUsers", "ListRoles", "ListPolicies", "ListAttachedRolePolicies",
+    "ListAccessKeys", "ListRolePolicies",
+    "CreateUser", "CreateRole", "CreatePolicy", "CreatePolicyVersion",
+    "CreateAccessKey", "CreateLoginProfile", "UpdateLoginProfile",
+    "DeleteUser", "DeleteRole", "DeletePolicy",
+    "AttachUserPolicy", "AttachRolePolicy", "AttachGroupPolicy",
+    "DetachUserPolicy", "DetachRolePolicy",
+    "PutUserPolicy", "PutRolePolicy", "PutGroupPolicy",
+    "UpdateAssumeRolePolicy", "PassRole", "AddUserToGroup",
+    "SetDefaultPolicyVersion", "TagRole", "TagUser"
+  ],
+  "sts": [
+    "AssumeRole", "AssumeRoleWithSAML", "AssumeRoleWithWebIdentity",
+    "GetCallerIdentity", "GetSessionToken", "GetFederationToken"
+  ],
+  "ec2": [
+    "DescribeInstances", "DescribeImages", "DescribeSecurityGroups",
+    "DescribeVpcs", "DescribeSubnets", "DescribeVolumes",
+    "RunInstances", "StartInstances", "StopInstances", "TerminateInstances",
+    "CreateTags", "DeleteTags",
+    "AuthorizeSecurityGroupIngress", "RevokeSecurityGroupIngress",
+    "CreateSecurityGroup", "DeleteSecurityGroup",
+    "CreateVolume", "DeleteVolume", "AttachVolume", "DetachVolume"
+  ],
+  "lambda": [
+    "GetFunction", "ListFunctions", "InvokeFunction",
+    "CreateFunction", "UpdateFunctionCode", "UpdateFunctionConfiguration",
+    "DeleteFunction", "AddPermission", "RemovePermission",
+    "GetPolicy", "CreateEventSourceMapping"
+  ],
+  "dynamodb": [
+    "GetItem", "BatchGetItem", "Query", "Scan",
+    "PutItem", "UpdateItem", "DeleteItem", "BatchWriteItem",
+    "CreateTable", "DeleteTable", "DescribeTable", "ListTables"
+  ],
+  "kms": [
+    "Decrypt", "Encrypt", "GenerateDataKey", "DescribeKey",
+    "ListKeys", "ListAliases", "CreateKey", "ScheduleKeyDeletion",
+    "PutKeyPolicy", "CreateGrant", "RetireGrant"
+  ],
+  "secretsmanager": [
+    "GetSecretValue", "DescribeSecret", "ListSecrets",
+    "CreateSecret", "PutSecretValue", "UpdateSecret", "DeleteSecret",
+    "PutResourcePolicy"
+  ],
+  "ssm": [
+    "GetParameter", "GetParameters", "GetParametersByPath",
+    "PutParameter", "DeleteParameter", "DescribeParameters",
+    "SendCommand", "StartSession"
+  ],
+  "logs": [
+    "CreateLogGroup", "CreateLogStream", "PutLogEvents",
+    "GetLogEvents", "DescribeLogGroups", "DescribeLogStreams",
+    "FilterLogEvents", "DeleteLogGroup"
+  ],
+  "sns": [
+    "Publish", "Subscribe", "CreateTopic", "DeleteTopic",
+    "ListTopics", "SetTopicAttributes"
+  ],
+  "sqs": [
+    "SendMessage", "ReceiveMessage", "DeleteMessage",
+    "CreateQueue", "DeleteQueue", "GetQueueAttributes", "SetQueueAttributes"
+  ],
+  "cloudwatch": [
+    "GetMetricData", "PutMetricData", "ListMetrics",
+    "DescribeAlarms", "PutMetricAlarm", "DeleteAlarms"
+  ]
+}

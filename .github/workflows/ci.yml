@@ -1,0 +1,63 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        go: ["1.22", "1.23"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go ${{ matrix.go }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+          check-latest: true
+
+      - name: gofmt
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            echo "These files are not gofmt-ed:"
+            echo "$unformatted"
+            exit 1
+          fi
+
+      - name: go vet
+        run: go vet ./...
+
+      - name: Test (race)
+        run: go test -race ./...
+
+      - name: Build
+        run: go build -o iam-policy-diff .
+
+      - name: Smoke test
+        run: |
+          set +e
+          ./iam-policy-diff --json --fail-on-risk examples/old.json examples/new.json > out.json
+          code=$?
+          set -e
+          echo "exit code: $code"
+          test "$code" -eq 2
+          grep -q '"action": "iam:PassRole"' out.json
+          grep -q '"severity": "high"' out.json
+          # A no-op diff (same file twice) must exit 0 and report no risks.
+          set +e
+          ./iam-policy-diff --fail-on-risk examples/new.json examples/new.json
+          same=$?
+          set -e
+          test "$same" -eq 0
+          echo "smoke test passed"
