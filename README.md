@@ -1,7 +1,7 @@
 # iam-policy-diff
 
 [![ci](https://github.com/moveeeax/iam-policy-diff/actions/workflows/ci.yml/badge.svg)](https://github.com/moveeeax/iam-policy-diff/actions/workflows/ci.yml)
-[![Go](https://img.shields.io/badge/go-1.22%2B-00ADD8?logo=go&logoColor=white)](https://go.dev)
+[![Go](https://img.shields.io/badge/go-1.26%2B-00ADD8?logo=go&logoColor=white)](https://go.dev)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Show a **semantic** diff of two AWS IAM policies — what access actually changed,
